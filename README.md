@@ -139,17 +139,17 @@ The pulse train is fed into a **Tuneable Low-Pass Filter (LPF)** which acts as a
 
   <!-- Images are located in the LABPICS directory -->
   
-  ![B1](LABPICS/B1.png)
+  ![B1](LABPICS/B1.jpg)
   
   ![B2](LABPICS/B2.png)
 
-  ![B3](LABPICS/B3.png)
+  ![B3](LABPICS/B3.jpg)
   
-  ![B4](LABPICS/B4.png)
+  ![B4](LABPICS/B4.jpg)
 
-  ![B5](LABPICS/B5.png)
+  ![B5](LABPICS/B5.jpg)
   
-  ![B6](LABPICS/B6.png)
+  ![B6](LABPICS/B6.jpg)
   
 </details>
 <details>
