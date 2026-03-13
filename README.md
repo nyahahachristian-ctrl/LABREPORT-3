@@ -57,9 +57,21 @@ To restore the $2\text{ kHz}$ data at the receiver, a three-stage process is imp
 
   <!-- Images are located in the LABPICS directory -->
   
-  ![A1](LABPICS/A1.png)
+  ![A1](LABPICS/A1.jpg)
   
-  ![A2](LABPICS/A2.png)
+  ![A2](LABPICS/A2.jpg)
+
+  ![A3](LABPICS/A3.jpg)
+   
+  ![A4](LABPICS/A4.jpg)
+
+  ![A5](LABPICS/A5.jpg)
+
+  ![A6](LABPICS/A6.jpg)
+
+  ![A7](LABPICS/A7.jpg)
+
+  ![A8](LABPICS/A8.jpg)
   
 </details>
 <details>
@@ -67,9 +79,16 @@ To restore the $2\text{ kHz}$ data at the receiver, a three-stage process is imp
 
   <!-- Images are located in the LABPICS directory -->
   
-  ![A3](LABPICS/A3.png)
+  ![A9](LABPICS/A9.png)
   
-  ![A4](LABPICS/A4.png)
+  ![A10](LABPICS/A10.png)
+
+  ![A11](LABPICS/A11.png)
+  
+  ![12](LABPICS/A12.png)
+
+  ![A13](LABPICS/A13.png)
+  
   
 </details>
 
@@ -124,16 +143,196 @@ The pulse train is fed into a **Tuneable Low-Pass Filter (LPF)** which acts as a
 
   <!-- Images are located in the LABPICS directory -->
   
-  ![A5](LABPICS/A5.png)
+  ![B1](LABPICS/B1.png)
   
-  ![A6](LABPICS/A6.png)
+  ![B2](LABPICS/B2.png)
+
+  ![B3](LABPICS/B3.png)
+  
+  ![B4](LABPICS/B4.png)
+
+  ![B5](LABPICS/B5.png)
+  
+  ![B6](LABPICS/B6.png)
   
 </details>
 <details>
   <summary> Results</summary>
 
   <!-- Images are located in the LABPICS directory -->
+  ![B7](LABPICS/B7.png)
   
-  ![A7](LABPICS/A7.png)
+  ![B8](LABPICS/B8.png)
+
+  ![B9](LABPICS/B9.png)
+  
+  ![B10](LABPICS/B10.png)
+
+  ![B11](LABPICS/B11.png)
   
 </details>
+
+## Part B: PHASE SHIT KEYING (BPSK AND QPSK)
+
+This project demonstrates the implementation of **Binary Phase Shift Keying (BPSK)**, a robust digital modulation scheme. The experiment covers the generation of BPSK signals using the **Balanced Modulator Method** and recovery via **Coherent Product Detection**.
+
+## System Architecture
+
+### Generation (Modulator)
+- **Input:** TTL Digital Signal (0V to 5V).
+- **Conversion:** Bipolar mapping (Logic 1 = +V, Logic 0 = -V).
+- **Modulation:** Multiplication of a 100 kHz sinusoidal carrier by the bipolar message.
+- **Result:** A constant-amplitude carrier with 180° phase reversals at bit transitions.
+
+### Recovery (Demodulator)
+- **Product Detection:** Multiplication of the incoming BPSK signal by a synchronized "stolen" carrier.
+- **Low-Pass Filtering:** Extraction of the unipolar bitstream.
+- **Restoration:** Comparator-based thresholding to restore sharp digital edges.
+
+## Key Performance Characteristics
+- High immunity to noise (Low SNR environments).
+- Maximum phase separation (180°) between binary states.
+- Constant envelope modulation.
+
+<details>
+  <summary> Wiring Diagram</summary>
+
+  <!-- Images are located in the LABPICS directory -->
+  
+  ![C1](LABPICS/C1.jpg)
+  
+  ![C2](LABPICS/C2.jpg)
+
+  ![C3](LABPICS/C3.jpg)
+  
+  ![C4](LABPICS/C4.jpg)
+
+  ![C5](LABPICS/C5.jpg)
+
+  ![C6](LABPICS/C6.jpg)
+  
+</details>
+<details>
+  <summary> Results</summary>
+
+  <!-- Images are located in the LABPICS directory -->
+  ![C7](LABPICS/C7.png)
+  
+  ![C8](LABPICS/C8.png)
+
+  ![C9](LABPICS/C9.png)
+   
+</details>
+
+# Laboratory 3: QPSK Generation and Parallel Coherent Detection
+
+This project explores **Quadrature Phase Shift Keying (QPSK)**. Unlike BPSK, QPSK transmits two bits per symbol by utilizing four distinct phase states ($45^\circ, 135^\circ, 225^\circ, 315^\circ$). This effectively doubles the data rate without increasing the spectral bandwidth.
+
+
+### QPSK Generation (The IQ Modulator)
+The QPSK signal is constructed using parallel bit-splitting:
+- **Bit Splitting:** A high-speed serial bitstream is divided into two slower parallel streams: **In-phase (I)** and **Quadrature (Q)**.
+- **Quadrature Carriers:** Two $100\text{ kHz}$ carriers—a sine wave and a cosine wave (shifted by $90^\circ$)—are modulated by the I and Q streams respectively.
+- **Summation:** The I and Q modulated signals are combined in an Adder module to produce the final QPSK waveform.
+
+### Signal Recovery (Parallel Coherent Detection)
+Because the I and Q components are orthogonal (at right angles), they can be recovered independently:
+- **Demodulation:** The signal is fed into two separate Product Detectors driven by the local I and Q carriers.
+- **Filtering:** Individual Tuneable Low-Pass Filters (LPFs) extract the baseband I and Q streams.
+- **Recombination:** The parallel streams are merged back into the original serial bitstream.
+
+<details>
+  <summary> Wiring Diagram</summary>
+
+  <!-- Images are located in the LABPICS directory -->
+  
+  ![D1](LABPICS/D1.jpg)
+  
+  ![D2](LABPICS/D2.jpg)
+
+  ![D3](LABPICS/D3.jpg)
+  
+  ![D4](LABPICS/D4.jpg)
+
+  ![D5](LABPICS/D5.jpg)
+
+  ![D6](LABPICS/D6.jpg)
+  
+  ![D7](LABPICS/D7.jpg)
+  
+  ![D8](LABPICS/D8.jpg)
+
+  ![D9](LABPICS/D9.jpg)
+  
+  ![D10](LABPICS/D10.jpg)
+
+  ![D11](LABPICS/D11.jpg)
+
+  ![D12](LABPICS/D12.jpg)
+  
+</details>
+<details>
+  <summary> Results</summary>
+
+  <!-- Images are located in the LABPICS directory -->
+  ![D13](LABPICS/D13.png)
+  
+  ![D14](LABPICS/D14.png)
+
+  ![D15](LABPICS/D15.png)
+
+  ![D17](LABPICS/D17.png)
+  
+  ![D18](LABPICS/D18.png)
+
+  ![D19](LABPICS/D19.png)
+   
+</details>
+
+# Laboratory 3: Software Defined Radio (SDR) and Undersampling
+
+This section explores the transition from hardware-defined communication to **Software Defined Radio (SDR)**. By shifting components like mixers, filters, and demodulators into the digital domain, we achieve a highly flexible system capable of reconfiguring for multiple modulation schemes (ASK, FSK, BPSK) without hardware changes.
+
+## Core Concepts
+
+### The Undersampling Architecture
+SDR utilizes **Undersampling (Sub-Nyquist Sampling)** to down-convert high-frequency signals:
+- **Aliasing as a Tool:** By intentionally sampling a 100 kHz carrier at a lower rate (e.g., 10 kHz), the signal "aliases" into a lower frequency baseband.
+- **Nyquist Zones:** The spectrum is divided into zones of width $f_s / 2$. Undersampling translates the signal from a higher Nyquist zone down to the first zone, effectively replacing the physical local oscillator and mixer.
+- **S/H Module:** The Sample-and-Hold module acts as the physical bridge between the continuous analog signal and the discrete digital domain.
+
+### Software-Based Recovery
+Once digitized via an Analog-to-Digital Converter (ADC), recovery is handled by software:
+- **Digital Filtering:** Replaces analog components with software algorithms (FIR/IIR filters) to isolate the bitstream.
+- **Reconfigurability:** The primary advantage of SDR is that a single hardware front-end can switch between decoding ASK, FSK, or BPSK simply by updating the software logic.
+
+<details>
+  <summary> Wiring Diagram</summary>
+
+  <!-- Images are located in the LABPICS directory -->
+  
+  ![E1](LABPICS/E1.png)
+  
+  ![E2](LABPICS/E2.png)
+
+  ![E3](LABPICS/E3.png)
+  
+  ![E4](LABPICS/E4.png)
+
+  ![E5](LABPICS/E5.png)
+  
+</details>
+<details>
+  <summary> Results</summary>
+
+  <!-- Images are located in the LABPICS directory -->
+  ![E6](LABPICS/E6.png)
+  
+  ![E7](LABPICS/E7.png)
+
+  ![E8](LABPICS/E8.png)
+  
+  ![E9](LABPICS/E9.png)
+  
+</details>
+
