@@ -1,9 +1,5 @@
 # LABREPORT-3
-# PART A: DIGITAL PASSBAND MODULATION (ASK AND FSK)
-
-# Amplitude Shift Keying (ASK) Simulation
-
-This repository contains a Python implementation of **Amplitude Shift Keying (ASK)**, specifically focusing on the **On-Off Keying (OOK)** method. 
+# DIGITAL PASSBAND MODULATION (ASK AND FSK) 
 
 ## AMPLITUDE SHIFT KEYING (ASK)
 
@@ -172,7 +168,7 @@ The pulse train is fed into a **Tuneable Low-Pass Filter (LPF)** which acts as a
   
 </details>
 
-## Part B: PHASE SHIT KEYING (BPSK AND QPSK)
+## PHASE SHIT KEYING (BPSK AND QPSK)
 
 This project demonstrates the implementation of **Binary Phase Shift Keying (BPSK)**, a robust digital modulation scheme. The experiment covers the generation of BPSK signals using the **Balanced Modulator Method** and recovery via **Coherent Product Detection**.
 
@@ -224,7 +220,7 @@ This project demonstrates the implementation of **Binary Phase Shift Keying (BPS
    
 </details>
 
-# Laboratory 3: QPSK Generation and Parallel Coherent Detection
+# QPSK Generation and Parallel Coherent Detection
 
 This project explores **Quadrature Phase Shift Keying (QPSK)**. Unlike BPSK, QPSK transmits two bits per symbol by utilizing four distinct phase states ($45^\circ, 135^\circ, 225^\circ, 315^\circ$). This effectively doubles the data rate without increasing the spectral bandwidth.
 
@@ -289,7 +285,59 @@ Because the I and Q components are orthogonal (at right angles), they can be rec
    
 </details>
 
-# Laboratory 3: Software Defined Radio (SDR) and Undersampling
+# Direct Sequence Spread Spectrum (DSSS)
+
+**Direct Sequence Spread Spectrum (DSSS)** is a modulation technique that expands the bandwidth of a signal significantly beyond the original information bandwidth. By multiplying the digital message with a high-speed **Pseudo-Noise (PN)** sequence (the "chipping code"), the signal's power is spread across a wide frequency range.
+
+## Spreading (The Transmitter)
+The spreading process utilizes high-speed logic to mask the message:
+- **The Chipping Code:** A PN sequence is generated at a rate much higher than the $2\text{ kHz}$ message bit rate.
+- **The XOR Operation:** Each message bit is XORed with multiple "chips." 
+    - If the message bit is '0', the PN sequence is transmitted normally.
+    - If the message bit is '1', the PN sequence is inverted.
+- **Result:** The narrow-band message becomes a wide-band, low-power signal that appears as background noise to unauthorized receivers.
+
+## Despreading & Recovery (The Receiver)
+Recovery requires a process of **Correlation**:
+- **Synchronization:** The receiver must use an identical PN Sequence Generator, perfectly synchronized in time with the transmitter.
+- **The Despreading XOR:** The spread signal is XORed again with the local PN code. Because of the XOR logic property ($A \oplus B \oplus B = A$), the high-speed code is removed, "collapsing" the wide-band signal back into the original narrow-band message.
+- **Integration:** A Low-Pass Filter smooths out spikes, and a Comparator restores the final digital bitstream.
+
+<details>
+  <summary> Wiring Diagram</summary>
+
+  <!-- Images are located in the LABPICS directory -->
+  
+  ![J1](LABPICS/J1.jpg)
+  
+  ![J2](LABPICS/J2.jpg)
+
+  ![J3](LABPICS/J3.jpg)
+  
+  ![J4](LABPICS/J4.jpg)
+
+  ![J5](LABPICS/J5.jpg)
+
+  ![J6](LABPICS/J6.jpg)
+  
+</details>
+<details>
+  <summary> Results</summary>
+
+  <!-- Images are located in the LABPICS directory -->
+  ![J7](LABPICS/J7.png)
+  
+  ![J8](LABPICS/J8.png)
+
+  ![J9](LABPICS/J9.png)
+  
+  ![J10](LABPICS/J10.png)
+
+  ![J11](LABPICS/J11.png)
+  
+</details>
+
+# Software Defined Radio (SDR) and Undersampling
 
 This section explores the transition from hardware-defined communication to **Software Defined Radio (SDR)**. By shifting components like mixers, filters, and demodulators into the digital domain, we achieve a highly flexible system capable of reconfiguring for multiple modulation schemes (ASK, FSK, BPSK) without hardware changes.
 
@@ -311,15 +359,15 @@ Once digitized via an Analog-to-Digital Converter (ADC), recovery is handled by 
 
   <!-- Images are located in the LABPICS directory -->
   
-  ![E1](LABPICS/E1.png)
+  ![E1](LABPICS/E1.jpg)
   
-  ![E2](LABPICS/E2.png)
+  ![E2](LABPICS/E2.jpg)
 
-  ![E3](LABPICS/E3.png)
+  ![E3](LABPICS/E3.jpg)
   
-  ![E4](LABPICS/E4.png)
+  ![E4](LABPICS/E4.jpg)
 
-  ![E5](LABPICS/E5.png)
+  ![E5](LABPICS/E5.jpg)
   
 </details>
 <details>
@@ -336,3 +384,18 @@ Once digitized via an Analog-to-Digital Converter (ADC), recovery is handled by 
   
 </details>
 
+---
+
+# QUESTIONS AND ANSWERS
+
+<details>
+  <summary> Results</summary>
+
+  <!-- Images are located in the LABPICS directory -->
+  ![M1](LABPICS/M1.png)
+  
+  ![M2](LABPICS/M2.png)
+
+  ![M3](LABPICS/M3.png)
+  
+</details>
